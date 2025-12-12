@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Love Letters</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #e60073, #3399ff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px;
+      text-align: center;
+      color: white;
+    }
+    h1 {
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      margin-bottom: 40px;
+    }
+    button {
+      display: block;
+      width: 250px;
+      margin: 10px;
+      padding: 15px;
+      border: none;
+      border-radius: 15px;
+      background: linear-gradient(to right, #3399ff, #e60073);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+    button:hover {
+      transform: scale(1.05);
+    }
+    #letter {
+      margin-top: 30px;
+      max-width: 600px;
+      background: linear-gradient(to right, #3399ff, #e60073);
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      color: white;
+    }
+    #backBtn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #e60073;
+      color: white;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Open When You Are...</h1>
+
+<button onclick="showLetter('sad')">Sad</button>
+<button onclick="showLetter('happy')">Happy</button>
+<button onclick="showLetter('grumpy')">Grumpy</button>
+<button onclick="showLetter('inlove')">Feeling Totally In Love</button>
+<button onclick="showLetter('spicy')">Spicy</button>
+<button onclick="showLetter('missing')">Missing Me</button>
+
+<div id="letter" style="display:none;"></div>
+<button id="backBtn" style="display:none;" onclick="goBack()">Back</button>
+
+<script>
+  const letters = {
+    sad: "My love, if you're opening this because you're sad, come here. I want you to feel wrapped in softness, in safety, in the kind of love that doesn't leave when things get heavy. You don't have to hold everything by yourself — I’m always here, even from far away.",
+    happy: "If you're happy right now, I want to be right there soaking in every bit of that glow on your face. Your joy is contagious, magnetic, and it pulls me in every time. I love knowing your heart feels light.",
+    grumpy: "If you're grumpy… come here. Let me kiss the edge off that mood. You can huff, puff, and roll your eyes — I'll still think you're adorable. I hope this softens you, even just a little.",
+    inlove: "If you're feeling totally in love, then we’re in sync — because I am too. I love you in this deep, steady, electric way that keeps getting stronger. Thank you for choosing me.",
+    spicy: "If you're feeling spicy… well, you already know how I get when you’re like that. Just know the feeling is mutual, and I can’t wait until I can show you exactly how much.",
+    missing: "If you're missing me, baby, I’m missing you right back — probably even more. I can’t wait until the next moment I get to hold you. Until then, let this letter be a small piece of me you can keep close."
+  };
+
+  function showLetter(option) {
+    document.getElementById('letter').style.display = 'block';
+    document.getElementById('backBtn').style.display = 'inline-block';
+    document.getElementById('letter').innerText = letters[option];
+  }
+
+  function goBack() {
+    document.getElementById('letter').style.display = 'none';
+    document.getElementById('backBtn').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
